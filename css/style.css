@@ -1,0 +1,308 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  line-height: 1.7;
+  padding: 3rem;
+}
+
+:root {
+  --kolor-niebieski-ciemny: #0a3d62;
+  --kolor-niebieski-jasny: #3c6382;
+  --kolor-zielony-ciemny: #78e08f;
+  --kolor-zielony-jasny: #b8e994;
+  --kolor-czerwony: #b33939;
+  --kolor-czarny: #333;
+  --kolor-biały: #bbb;
+  --czcionka-logo: "Audiowide";
+}
+
+.container,
+.container-config {
+  width: 100%;
+  max-width: 144rem;
+  height: calc(100vh - 6rem);
+  background-image: linear-gradient(
+    to right bottom,
+    var(--kolor-zielony-jasny),
+    var(--kolor-zielony-ciemny)
+  );
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ------nagłówek i logo na każdej stronie---------- */
+.header,
+.header-config {
+  width: 100%;
+  height: 40%;
+  position: relative;
+  text-align: center;
+}
+.logo-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: var(--czcionka-logo), display;
+}
+.logo-span-big {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20rem;
+  color: var(--kolor-niebieski-ciemny);
+  animation-name: appear;
+  animation-duration: 5s;
+}
+.logo-span-small {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  font-size: 6rem;
+  letter-spacing: 0.3rem;
+  color: var(--kolor-czerwony);
+  animation-name: appear2;
+  animation-duration: 2.5s;
+  animation-delay: 1s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes appear2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* -----inputy ekranu logowania------ */
+.log-container {
+  width: 100%;
+  height: 60%;
+  text-align: center;
+}
+.log-container p {
+  margin-bottom: 2rem;
+}
+.log-container input {
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+/*----paragraf z przyciskiem z ekranu logowania-------*/
+.log-par-btn {
+  width: 12rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+/* -------przyciski--------- */
+.log-container .btn-confirm,
+.config-container .btn-confirm {
+  width: 12rem;
+  height: 3.5rem;
+  transition: 0.5s;
+}
+.log-container .btn-confirm:hover,
+.config-container .btn-confirm:hover {
+  background-color: var(--kolor-czerwony);
+  cursor: pointer;
+}
+
+/* -------przejście z ekranu logowania do ekranu konfiguracji bez hasła------- */
+.log-container .example-link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------ekrany konfiguracji---------- */
+/* -------nawigacja wersji desktopowej--------- */
+.nav {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+}
+.nav ul {
+  list-style-type: none;
+  width: 100%;
+}
+.nav ul li {
+  float: left;
+  padding: 1rem 2rem;
+}
+.nav ul li a {
+  color: var(--kolor-czarny);
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 900;
+  transition: 0.3s;
+}
+.nav ul li a:hover {
+  color: var(--kolor-czerwony);
+}
+
+/* -----navigacja wersji mobilnej------ */
+.nav-mobile {
+  display: none;
+}
+.burger {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--kolor-czerwony);
+  border: 1px solid var(--kolor-czarny);
+  border-radius: 2rem;
+  z-index: 2;
+}
+.burger .line {
+  font-size: 6rem;
+  font-family: serif;
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -56%);
+}
+.burger .line::after {
+  content: "_";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -42%);
+}
+.burger .line::before {
+  content: "_";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -58%);
+}
+.pushed-btn {
+  background-image: linear-gradient(
+    to right bottom,
+    var(--kolor-zielony-jasny),
+    var(--kolor-zielony-ciemny)
+  );
+}
+
+.nav-mobile-list {
+  background-image: linear-gradient(
+    to right bottom,
+    var(--kolor-niebieski-jasny),
+    var(--kolor-niebieski-ciemny)
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  transition: 0.5s;
+  list-style-type: none;
+  padding-top: 15rem;
+}
+
+/* --------dynamiczna klasa pokazująca/ukrywająca nawigację mobilną------- */
+.nav-hidden {
+  top: -100vh;
+}
+.nav-mobile-list li a {
+  text-decoration: none;
+}
+.nav-mobile-list .nav-link-span {
+  color: var(--kolor-biały);
+  font-size: 2rem;
+  display: block;
+  padding: 3.5rem 0;
+}
+
+/* ------inputy na każdej stronie--------- */
+.config-container {
+  overflow-x: hidden;
+  width: 30rem;
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 1rem;
+}
+
+.config-container p {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+.config-container input {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+@media (min-width: 1000px) and (max-height: 800px) {
+  .container,
+  .container-config {
+    height: 900px;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    padding: 0;
+  }
+  .header-config {
+    height: 30%;
+  }
+  .logo-span-big {
+    font-size: 12rem;
+  }
+  .logo-span-small {
+    font-size: 4rem;
+  }
+  .nav {
+    display: none;
+  }
+  .nav-mobile {
+    display: block;
+  }
+  .container,
+  .container-config {
+    height: 100vh;
+  }
+  .config-container {
+    height: 70%;
+  }
+
+  @keyframes appear2 {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
