@@ -2,6 +2,11 @@ const Group = document.getElementById("Group");
 const LWT_Topic = document.getElementById("LWT-Topic");
 const Topic = document.getElementById("Topic");
 const configBtn = document.getElementById("btn-relay-confirm");
+const form = document.getElementById("form");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
 
 fetch("http://localhost:8080/relays")
   .then((data) => data.json())

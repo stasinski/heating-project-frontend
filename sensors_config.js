@@ -3,6 +3,11 @@ const LWT_Topic = document.getElementById("LWT-Topic");
 const Topic = document.getElementById("Topic");
 const Room_Name = document.getElementById("Room_Name");
 const configBtn = document.getElementById("btn-sensors-config-confirm");
+const form = document.getElementById("form");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
 
 fetch("http://localhost:8080/sensors-config")
   .then((data) => data.json())

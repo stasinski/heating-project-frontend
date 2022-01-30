@@ -3,6 +3,10 @@ const MQTT_username = document.getElementById("MQTT_username");
 const MQTT_pass = document.getElementById("MQTT_pass");
 const MQTT_port = document.getElementById("MQTT_port");
 const configBtn = document.getElementById("btn-config-confirm");
+const form = document.getElementById("form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
 
 fetch("http://localhost:8080/config")
   .then((data) => data.json())
