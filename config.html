@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Lato:ital,wght@0,100;0,300;0,400;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet"  href="css/style.css" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Lato:ital,wght@0,100;0,300;0,400;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
   <title>AI heating - konfiguracja</title>
 </head>
-<body ip="config"> 
+
+<body ip="config">
   <div class="container-config">
     <header class="header-config">
       <div class="logo-container">
@@ -19,43 +23,44 @@
         <ul>
           <!-- <li><a href="config.html"><span class="nav-link-span">Konfiguracja użytkownika</span></a></li> -->
           <li><a href="sensors_config.html"><span class="nav-link-span">Konfiguracja sensorów</span></a></li>
-          <li><a href="relay_config.html"><span class="nav-link-span">Konfiguracja przekaźnika</span></a></li>    
-        </ul>   
+          <li><a href="relay_config.html"><span class="nav-link-span">Konfiguracja przekaźnika</span></a></li>
+        </ul>
       </nav>
       <nav class="nav-mobile">
         <div class="burger"><span class="line">_</span></div>
         <ul class="nav-mobile-list nav-hidden">
           <!-- <li><a href="config.html"><span class="nav-link-span">Konfiguracja użytkownika</span></a></li> -->
           <li><a href="sensors_config.html"><span class="nav-link-span">Konfiguracja sensorów</span></a></li>
-          <li><a href="relay_config.html"><span class="nav-link-span">Konfiguracja przekaźnika</span></a></li>    
-        </ul>   
+          <li><a href="relay_config.html"><span class="nav-link-span">Konfiguracja przekaźnika</span></a></li>
+        </ul>
       </nav>
-    </header> 
+    </header>
     <div class="config-container">
-      <form action="#" id="form" class="config-form">
+      <form action="#" id="form">
         <!-------------MQTT--------------->
-        <p class="par-MQTT-user">
+        <p>
           MQTT_server
-          <input type="text" class="inp-MQTT-user" id="MQTT_server">
+          <input type="text" id="MQTT_server">
         </p>
-        <p class="par-MQTT-password">
-          MQTT_username 
-          <input type="text" class="inp-MQTT-password" id="MQTT_username">
+        <p>
+          MQTT_username
+          <input type="text" id="MQTT_username">
         </p>
-        <p class="par-MQTT-IP">
-          MQTT_pass    
-          <input type="text" class="inp-MQTT-IP" id="MQTT_pass">
+        <p>
+          MQTT_pass
+          <input type="text" id="MQTT_pass">
         </p>
-        <p class="par-MQTT-port">
-          MQTT_port  
-          <input type="text" class="inp-MQTT-port" id="MQTT_port">
+        <p>
+          MQTT_port
+          <input type="text" id="MQTT_port">
         </p>
-          <button type="submit" class="btn-confirm" value="zatwierdź" id="btn-config-confirm">
+        <button type="submit" class="btn-confirm" value="zatwierdź" id="btn-config-confirm">
           zatwierdź
       </form>
     </div>
   </div>
-  
+
 </body>
 <script src="config.js"></script>
+
 </html>

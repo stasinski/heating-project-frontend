@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Lato:ital,wght@0,100;0,300;0,400;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet"  href="css/style.css" type="text/css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Lato:ital,wght@0,100;0,300;0,400;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
   <title>AI heating - konfiguracja przekaźników</title>
 </head>
-<body ip="config"> 
+
+<body >
   <div class="container-config">
     <header class="header-config">
       <div class="logo-container">
@@ -17,41 +21,47 @@
       </div>
       <nav class="nav">
         <ul>
-          <li><a href="config.html"><span class="nav-link-span">Konfiguracja użytkownika</span></a></li>
-          <li><a href="sensors_config.html"><span class="nav-link-span">Konfiguracja sensorów</span></a></li>
+          <li>
+            <a href="config.html"><span class="nav-link-span">Konfiguracja użytkownika</span></a>
+          </li>
+          <li>
+            <a href="sensors_config.html"><span class="nav-link-span">Konfiguracja sensorów</span></a>
+          </li>
           <!-- <li><a href="relay_config.html"><span class="nav-link-span">Konfiguracja przekaźnika</span></a></li>     -->
-        </ul>   
+        </ul>
       </nav>
       <nav class="nav-mobile">
         <div class="burger"><span class="line">_</span></div>
         <ul class="nav-mobile-list nav-hidden">
-          <li><a href="config.html"><span class="nav-link-span">Konfiguracja użytkownika</span></a></li>
-          <li><a href="sensors_config.html"><span class="nav-link-span">Konfiguracja sensorów</span></a></li>
+          <li>
+            <a href="config.html"><span class="nav-link-span">Konfiguracja użytkownika</span></a>
+          </li>
+          <li>
+            <a href="sensors_config.html"><span class="nav-link-span">Konfiguracja sensorów</span></a>
+          </li>
           <!-- <li><a href="relay_config.html"><span class="nav-link-span">Konfiguracja przekaźnika</span></a></li>     -->
-        </ul>   
+        </ul>
       </nav>
-    </header> 
+    </header>
     <div class="config-container">
-      <form action="#" id="form" class="config-form">
-        <p class="par-MQTT-user">
+      <form action="#" id="form">
+        <p>
           Group
-          <input type="text" class="inp-MQTT-user" id="Group">
+          <input type="number" id="Group" />
         </p>
-        <p class="par-MQTT-password">
+        <p>
           LWT topic
-          <input type="text" class="inp-MQTT-password" id="LWT-Topic">
+          <input type="number" id="LWT-Topic" />
         </p>
-        <p class="par-MQTT-IP">
+        <p>
           Topic
-          <input type="text" class="inp-MQTT-IP" id="Topic">
+          <input type="text" id="Topic" />
         </p>
-        <button id="btn-relay-confirm" >
-            Zatwierdź
-        </button>
+        <button id="btn-relay-confirm">Zatwierdź</button>
       </form>
     </div>
   </div>
-  
 </body>
 <script src="relay_config.js"></script>
+
 </html>
