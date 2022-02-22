@@ -1,37 +1,44 @@
-const Group = document.getElementById("Group");
-const LWT_Topic = document.getElementById("LWT-Topic");
-const Topic = document.getElementById("Topic");
-const Room_Name = document.getElementById("Room_Name");
-const SetPoint = document.getElementById("SetPoint");
-const configBtn = document.getElementById("btn-sensors-config-confirm");
-const form = document.getElementById("form");
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-});
+const Group = document.querySelectorAll("#Group");
+const LWT_Topic = document.querySelectorAll("#LWT-Topic");
+const Topic = document.querySelectorAll("#Topic");
+const Room_Name = document.querySelectorAll("#Room_Name");
+const SetPoint = document.querySelectorAll("#SetPoint");
+const configBtns = document.querySelectorAll("#btn-sensors-config-confirm");
 
 fetch("http://localhost:8080/sensors-config")
   .then((data) => data.json())
-  .then((data) => {
-    Group.value = data[0].Group;
-    LWT_Topic.value = data[0].LwtTopic;
-    Room_Name.value = data[0].RoomName;
-    Topic.value = data[0].Topic;
-    SetPoint.value = data[0].SetPoint;
+  .then((dataList) => {
+    console.log(dataList);
+    dataList.forEach((data, index) => {
+      if (Group[index]) {
+        Group[index].value = data.Group;
+        LWT_Topic[index].value = data.LwtTopic;
+        Room_Name[index].value = data.RoomName;
+        Topic[index].value = data.Topic;
+        SetPoint[index].value = data.SetPoint;
+        configBtns[index].dataset.id = data.ID;
+      }
+    });
   });
 
-configBtn.addEventListener("click", () => {
-  fetch("http://localhost:8080/sensors-config", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      Group: Group.value,
-      LWT_Topic: LWT_Topic.value,
-      RoomName: Room_Name.value,
-      Topic: Topic.value,
-      SetPoint: SetPoint.value,
-    }),
+configBtns.forEach((btn, index) => {
+  btn.addEventListener("click", (event) => {
+    const id = event.target.dataset.id;
+    if (id) {
+      fetch("http://localhost:8080/sensors-config", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          Group: Group[index].value,
+          LWT_Topic: LWT_Topic[index].value,
+          RoomName: Room_Name[index].value,
+          Topic: Topic[index].value,
+          SetPoint: SetPoint[index].value,
+          ID: id,
+        }),
+      });
+    }
   });
 });

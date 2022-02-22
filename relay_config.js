@@ -1,31 +1,38 @@
-const Group = document.getElementById("Group");
-const LWT_Topic = document.getElementById("LWT-Topic");
-const Topic = document.getElementById("Topic");
-const configBtn = document.getElementById("btn-relay-confirm");
-const form = document.getElementById("form");
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-});
+const Group = document.querySelectorAll("#Group");
+const LWT_Topic = document.querySelectorAll("#LWT-Topic");
+const Topic = document.querySelectorAll("#Topic");
+const configBtns = document.querySelectorAll("#btn-relay-confirm");
 
 fetch("http://localhost:8080/relays")
   .then((data) => data.json())
-  .then((data) => {
-    Group.value = data[0].Group;
-    LWT_Topic.value = data[0]["LWT Topic"];
-    Topic.value = data[0].Topic;
+  .then((dataList) => {
+    console.log(dataList);
+    dataList.forEach((data, index) => {
+      if (Group[index]) {
+        Group[index].value = data.Group;
+        LWT_Topic[index].value = data["LWT Topic"];
+        Topic[index].value = data.Topic;
+        configBtns[index].dataset.id = data.ID;
+      }
+    });
   });
 
-configBtn.addEventListener("click", () => {
-  fetch("http://localhost:8080/relays", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      Group: Group.value,
-      LWT_Topic: LWT_Topic.value,
-      Topic: Topic.value,
-    }),
+configBtns.forEach((btn, index) => {
+  btn.addEventListener("click", (btn) => {
+    const id = btn.target.dataset.id;
+    if (id) {
+      fetch("http://localhost:8080/relays", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          Group: Group[index].value,
+          LWT_Topic: LWT_Topic[index].value,
+          Topic: Topic[index].value,
+          ID: id,
+        }),
+      });
+    }
   });
 });

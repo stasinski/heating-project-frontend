@@ -30,8 +30,8 @@ body {
 .container,
 .container-config {
   width: 100%;
-  max-width: 144rem;
   height: calc(100vh - 6rem);
+  overflow-y: auto;
   background-image: linear-gradient(
     to right bottom,
     var(--kolor-zielony-jasny),
@@ -244,8 +244,10 @@ body {
 
 /* ------inputy na każdej stronie--------- */
 .config-container {
-  overflow-x: hidden;
-  width: 30rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
   text-align: right;
   margin-left: auto;
   margin-right: auto;
